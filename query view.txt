@@ -1,0 +1,3 @@
+create view view_phonebook as SELECT p.ID,p.Name,p.Number,g.Name as GroupName 
+FROM pbk as p,pbk_groups as g
+WHERE p.GroupID=g.ID
