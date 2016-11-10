@@ -91,7 +91,7 @@
                                             <a href="#" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="<?php echo base_url(); ?>auth/logout" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="<?php echo base_url(); ?>index.php/auth/logout" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -131,7 +131,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        
+                        <li><?php echo anchor('sms/dashboard','<i class="fa fa-television"></i> DASHBOARD');?><li>
                         <?php
                         // data main menu
                         $main_menu = $this->db->get_where('tabel_menu', array('is_main_menu' => 0,'publish'=>1));

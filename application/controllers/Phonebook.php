@@ -4,6 +4,7 @@ Class Phonebook extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        is_login();
     }
 
     function data() {
@@ -84,7 +85,7 @@ Class Phonebook extends CI_Controller {
                 $this->db->insert('pbk_groups',$group_name);
                 $GroupID = $this->db->insert_id();
                 //  Loop through each row of the worksheet in turn
-                for ($row = 1; $row <= $highestRow; $row++){ 
+                for ($row = 2; $row <= $highestRow; $row++){ 
                     //  Read a row of data into an array
                     $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,NULL,TRUE,FALSE);
                     $nama     = $rowData[0][0];
@@ -96,7 +97,7 @@ Class Phonebook extends CI_Controller {
 
             function delete($id) {
                 $this->db->where('id', $id);
-                $this->db->delete('tabel_menu');
+                $this->db->delete('pbk');
                 redirect($this->uri->segment(1));
             }
 

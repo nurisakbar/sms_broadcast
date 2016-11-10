@@ -27,17 +27,17 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?php echo base_url(); ?>"><b>POINT OF SALE</a>
+                <a href="<?php echo base_url(); ?>"><b>BROADCAST SMS</a>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Silahkan masukan account anda</p>
                 <?php echo form_open('auth');?>
                     <div class="form-group has-feedback">
-                        <input type="email" name="email" required="" class="form-control" placeholder="Email">
+                        <input type="email" name="email" required="" class="form-control" placeholder="Email" value="admin@admin.com">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" required="" name="password" class="form-control" placeholder="Password">
+                        <input type="password" required="" name="password" class="form-control" placeholder="Password" value="password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">

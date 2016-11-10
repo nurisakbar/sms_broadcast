@@ -7,7 +7,7 @@ function is_login(){
       }
 }
 
-function sms($nohp,$pesan)
+function sms_($nohp,$pesan)
 {
     $jmlSMS     = ceil(strlen($pesan)/153);
     
@@ -21,7 +21,7 @@ function sms($nohp,$pesan)
     }
 }
 
-    function shortsms($nohp,$pesan)
+    function _shortsms($nohp,$pesan)
     {
         $CI =& get_instance();
         $params = array(
@@ -34,7 +34,7 @@ function sms($nohp,$pesan)
     }
     
     
-    function longsms($nohp,$pesan){
+    function _longsms($nohp,$pesan){
        $CI =& get_instance();
         // hitung jumlah sms
         $jmlSMS     = ceil(strlen($pesan)/153);

@@ -20,7 +20,7 @@ class Auth extends MX_Controller{
                 $user= $users->row_array();
                 $this->session->set_userdata(array('login_status'=>'oke','level'=>$user['level']));
                 $this->session->set_userdata($user);
-                redirect('transaksi');
+                redirect('sms/inbox');
             }else{
                 redirect('auth');
             }

@@ -7,8 +7,10 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div class="box box-primary">
-                        <?php echo form_open($this->uri->segment(1).'/edit'); ?>
-                        <?php echo form_hidden('id',$row['ID']);?>
+                        <?php echo form_open($this->uri->segment(1).'/read'); ?>
+                        <?php 
+                        echo form_hidden('no_hp',$row['SenderNumber']);
+                        ?>
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tr><td width="150">Pengirim</td><td><?php echo $row['SenderNumber']; ?></td></tr>

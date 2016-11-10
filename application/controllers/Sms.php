@@ -1,6 +1,10 @@
 <?php
 Class SMS extends CI_Controller{
     
+    function __construct() {
+        parent::__construct();
+        is_login();
+    }
     function outbox_data(){
         $this->load->library('datatables_ssp');
         $table = 'sentitems';
@@ -57,6 +61,10 @@ Class SMS extends CI_Controller{
                 );
     }
     
+    function dashboard(){
+        $this->template->load('template','sms/dashboard');
+    }
+    
     function inbox(){
         $this->template->load('template','sms/inbox');
     }
@@ -68,14 +76,26 @@ Class SMS extends CI_Controller{
     
     function send(){
         if(isset($_POST['submit'])){
-            
+            $GroupID = $this->input->post('GroupID');
+            $message = $this->input->post('message');
+            $pbk     = $this->db->get_where('pbk',array('GroupID'=>$GroupID));
+            foreach ($pbk->result() as $row){
+               sms($row->Number, $message);
+            }
+            redirect('sms/inbox');
         }else{
             $this->template->load('template','sms/send');
         }
     }
     
     function read($id){
-        $data['row'] = $this->db->get_where('inbox',array('ID'=>$id))->row_array();
-        $this->template->load('template','sms/read',$data);
+        if(isset($_POST['submit'])){
+           sms($this->input->post('no_hp'), $this->input->post('pesan'));
+            redirect('sms/outbox');
+        }else{
+            $id = $this->uri->segment(3);
+            $data['row'] = $this->db->get_where('inbox',array('ID'=>$id))->row_array();
+            $this->template->load('template','sms/read',$data);
+        }
     }
 }
